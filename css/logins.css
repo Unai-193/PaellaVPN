@@ -5,7 +5,7 @@ body {
     padding-top: 80px;
     position: relative;
     padding-bottom: 14.5em;
-    min-height: 130vh;
+    min-height: 140vh;
 }
 
 
@@ -107,6 +107,32 @@ p{
 }
 
 
+
+
+
+a{
+    text-decoration: none;
+    color:white;
+}
+
+
+.logo {
+    display: flex;
+}
+
+.logo img {
+    margin-left: 20px;
+    width: 40%;
+}
+
+nav a {
+    padding-right: 60px;
+    font-family: 'Open Sans';
+}
+
+nav a:hover{
+    color: #5CE1E6;
+}
 
 
 
