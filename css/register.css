@@ -5,7 +5,7 @@ body {
     padding-top: 80px;
     position: relative;
     padding-bottom: 14.5em;
-    min-height: 200vh;
+    min-height: 120vh;
 }
 
 
@@ -28,6 +28,10 @@ header .logo img {
     max-height: 100px;
     width: auto;
 }
+.logo img {
+    margin-left: 20px;
+    width: 40%;
+}
 
 header .pago {
     background-color: #c09316a6;
@@ -38,7 +42,6 @@ header .desplegable .Doc {
     margin-left: -5%;
     padding-left: 4%;
 }
-
 
 
 nav {
@@ -52,9 +55,12 @@ nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    padding-right: 60px;
 }
 
-
+nav a:hover{
+    color: #5CE1E6;
+}
 
 
 .desplegable {
