@@ -130,74 +130,59 @@ i {
 
 
 
+
+
+
+
+
+
 a{
     text-decoration: none;
     color:white;
 }
 
-
-.logo {
-    display: flex;
-}
-
-.logo img {
-    margin-left: 20px;
-    width: 40%;
-}
-
-nav a {
-    padding-right: 60px;
-    font-family: 'Open Sans';
-}
-
-nav a:hover{
-    color: #5CE1E6;
-}
-
-
-
 .pie-pagina {
-background-color: #c09316;
-bottom: 0;
-position: absolute;
-width: 100%;
-}
+    background-color: #c09316;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    }
 
 .pie-pagina .grupo-1 {
-width: 100%;
-max-width: 1600px;
-margin: auto;
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-padding-top: 40px;
-padding-bottom: 40px;
+    width: 100%;
+    max-width: 1600px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 .pie-pagina .grupo-1 .columna figure {
-width: 100%;
-height: 100%;
-padding-left: 0%;
-display: flex;
-justify-content: center;
-align-items: center;
-margin:auto;
+    width: 100%;
+    height: 100%;
+    padding-left: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
 }
 
 .pie-pagina .grupo-1 .columna figure img {
-width: 175px;
-margin: 0px;
+    width: 175px;
+    margin: 0px;
 }
 
 .pie-pagina .grupo-1 .columna h2 {
-font-family: 'Open Sans';
-font-size: 22px;
-color:white;
+    font-family: 'Open Sans';
+    font-size: 22px;
+    color:white;
 }
 
 .pie-pagina .grupo-1 .columna img {
-width: 190px;
-margin-left: 10px;
+    width: 190px;
+    margin-left: 10px;
 }
 
 
