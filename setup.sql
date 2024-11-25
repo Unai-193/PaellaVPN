@@ -6,7 +6,7 @@ use users;
 
 CREATE TABLE IF NOT EXISTS listado_usuarios  (
     id INT (11) AUTO_INCREMENT,
-    email VARCHAR(100) NOT NULL,
+    user VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL,
     PRIMARY KEY (id)
 ) ENGINE=INNODB;
