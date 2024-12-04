@@ -30,22 +30,23 @@
         <p class="plogin"><label for="nickname">Nombre</label>
             <input type="text" name="nickname" placeholder="Introduce tu nombre"></p>
 
-        <p class="plogin"><label for="nickname">Apellidos</label>
-            <input type="text" name="nickname" placeholder="Introduce tus apellidos"></p>
+        <p class="plogin"><label for="secname">Apellidos</label>
+            <input type="text" name="secname" placeholder="Introduce tus apellidos"></p>
 
-        <p class="plogin"><label for="nickname">Correo</label>
-        <input type="text" name="nickname" placeholder="Correo electronico"></p>
+        <p class="plogin"><label for="mail">Correo</label>
+        <input type="text" name="mail" placeholder="Correo electronico"></p>
 
         <i class="fa-solid fa-unlock"></i>
         <p class="plogin"><label for="password">Contraseña</label>
         <input type="password" name="password" placeholder="******"></p>
 
-        <p class="plogin"><input class="submit" type="submit" value="Acceder"></p>
 
+        <p class="plogin"><input class="submit" type="submit" value="Acceder"></p>
     </form>
 
 
     <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $servername = "localhost";
     $database = "users";
     $username = "paellavpn";
@@ -58,6 +59,7 @@
     }
     echo "Connected successfully";
     mysqli_close($conn);
+}
     ?>
 
 
