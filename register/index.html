@@ -41,26 +41,10 @@
         <input type="password" name="password" placeholder="******"></p>
 
 
-        <p class="plogin"><input class="submit" type="submit" value="Acceder"></p>
+        <p class="plogin">
+            <button type="submit">Registrar</button>
+        </p>
     </form>
-
-
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $servername = "localhost";
-    $database = "users";
-    $username = "root";
-    $password = "123";
-
-    $conn = mysqli_connect($servername, $username, $password, $database);
-
-    if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-    }
-    echo "Connected successfully";
-    mysqli_close($conn);
-}
-    ?>
 
 
 
