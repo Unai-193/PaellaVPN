@@ -25,22 +25,75 @@
     </header>
 
 
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $servername = "localhost";
-    $database = "users";
-    $username = "root";
-    $password = "123";
 
-    $conn = mysqli_connect($servername, $username, $password, $database);
+<?php
+$server = "localhost";
+$user = "paella";
+$passwddb = "@P4ssw0rd";
+$db = "users";
 
-    if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-    }
-    echo "Connected successfully";
-    mysqli_close($conn);
+$enlace = mysqli_connect($server, $user, $passwddb, $db);
+
+if (!$enlace) {
+die("No se pudo conectar con la base de datos".mysqli_error());
 }
-    ?>
+
+$nombre = $_POST['nickname'];
+$apellidos = $_POST['secname'];
+$mail = $_POST['mail'];
+$passwd = $_POST['password'];
+
+$sql = "INSERT INTO listado_usuarios (nombre, apellidos, correo, passwd) VALUES ('$nombre', '$apellidos', '$mail', '$passwd')";
+
+mysqli_query($enlace, $sql);
+
+mysqli_close($enlace);
+
+?>
+
+<h2 class="pl"></h2>
+<div class="Login">
+        <h1 class="textomain">Enorabuena, te has loggeado</h1>
+        <h1 class="textomain"><a href="../login/index.html" class="compra"><strong>Inicie sessión</strong></a></h1>
+    </div>
+
+<style>
+
+    .pl {
+    padding-bottom: 100px;
+    }
+    .Login {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    padding: 5%;
+    border: 3px solid #ffbb00;
+    border-radius: 20%;
+}
+
+.Login .textomain {
+    white-space: nowrap;
+    font-family: 'League Spartan';
+    padding: 3%;
+    margin: 3%;
+    text-align: center;
+}
+
+.Login .compra {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 3px solid #cec048;
+    border-radius: 40%;
+    background-color: #c09316;
+    padding: 20px;
+    color: black;
+    text-decoration: none;
+}
+    </style>
+   
 
 
 
