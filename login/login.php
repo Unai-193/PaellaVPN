@@ -13,7 +13,7 @@
     <header>
         <a href="../index.html" class="logo"><img src="../img/paellalogo.png"></a>
         <nav>
-            <a href="../register/index.html" class="pago"><strong>REGISTRARSE</strong></a>
+            <a href="../login/index.html">INICIAR SESIÓN</a>
             <div class="desplegable">
                 <a class="Doc" ><strong>DOCUMENTACIÓN↓</strong></a>
                 <div class="submenu">
@@ -24,21 +24,75 @@
         </nav>
     </header>
 
-    <h1 class="bodylogin">INICIE SESIÓN</h1>
-    <form action="login.php" method="POST">
-        <i class="fa-solid fa-user"></i>
-        <p class="plogin"><label for="nickname">Correo</label>
-        <input type="email" name="nickname" placeholder="Nombre de usuario"></p>
-    
-        <i class="fa-solid fa-unlock"></i>
-        <p class="plogin"><label for="password">Contraseña</label>
-        <input type="password" name="password" placeholder="******"></p>
-    
-        <p class="plogin"><input class="submit" type="submit" value="Acceder"></p>
-    
-    </form>
 
 
+<?php
+$server = "localhost";
+$user = "paella";
+$passwddb = "@P4ssw0rd";
+$db = "users";
+
+$enlace = mysqli_connect($server, $user, $passwddb, $db);
+
+if (!$enlace) {
+die("No se pudo conectar con la base de datos".mysqli_error());
+}
+
+$nombre = $_POST['nickname'];
+$apellidos = $_POST['secname'];
+$mail = $_POST['mail'];
+$passwd = $_POST['password'];
+
+$sql = "INSERT INTO listado_usuarios (nombre, apellidos, correo, passwd) VALUES ('$nombre', '$apellidos', '$mail', '$passwd')";
+
+mysqli_query($enlace, $sql);
+
+mysqli_close($enlace);
+
+?>
+
+<h2 class="pl"></h2>
+<div class="Login">
+        <h1 class="textomain">Enorabuena has iniciado sesion</h1>
+    </div>
+
+<style>
+
+    .pl {
+    padding-bottom: 100px;
+    }
+    .Login {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    padding: 5%;
+    border: 3px solid #ffbb00;
+    border-radius: 20%;
+}
+
+.Login .textomain {
+    white-space: nowrap;
+    font-family: 'League Spartan';
+    padding: 3%;
+    margin: 3%;
+    text-align: center;
+}
+
+.Login .compra {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 3px solid #cec048;
+    border-radius: 40%;
+    background-color: #c09316;
+    padding: 20px;
+    color: black;
+    text-decoration: none;
+}
+    </style>
+   
 
 
 
