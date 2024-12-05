@@ -54,7 +54,7 @@ mysqli_close($enlace);
 
 <h2 class="pl"></h2>
 <div class="Login">
-        <h1 class="textomain">Enorabuena, te has loggeado</h1>
+        <h1 class="textomain">Enorabuena, te has registrado</h1>
         <h1 class="textomain"><a href="../login/index.html" class="compra"><strong>Inicie sessión</strong></a></h1>
     </div>
 
