@@ -1,5 +1,5 @@
 body {
-    background-color: #ffefc2b2;
+    background-color: lightgray;
     margin: 0;
     padding-top: 80px;
     position: relative;
@@ -21,16 +21,15 @@ header{
     background-color: white;
     box-sizing: border-box;
     border: 2px solid black;
+    border-radius: 8px;
 }
 
 header .logo img {
     max-height: 120px;
+
 }
 
-header .pago {
-    margin-left: 0px;
-    margin-right: 0px;
-}
+
 
 header .desplegable .Doc {
     color: black;
@@ -82,15 +81,22 @@ nav a:hover{
 
 
 /* Body pagina principal*/
+
+.rellenomain {
+    width: 500px;
+    text-align: center;
+    line-height: 500%;
+    float: left;
+    margin-top: 220px;
+
+}
 .gif {
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
+    width: 600px;
     padding: 5%;
+    float: center;
+    margin-left: 620px;
 }
 
 .gif .img {
@@ -131,8 +137,6 @@ nav a:hover{
     max-width: 500px;
     margin: auto;
     padding: 5%;
-    border: 3px solid #ffbb00;
-    border-radius: 20%;
 }
 
 .Register .textomain {
@@ -146,7 +150,7 @@ nav a:hover{
 .Register .compra {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border: 3px solid #cec048;
-    border-radius: 40%;
+    border-radius: 8px;
     background-color: #c09316;
     padding: 20px;
     color: black;
@@ -221,47 +225,51 @@ form {
 
 
 .pie-pagina {
-background-color: #c09316;
-bottom: 0;
-position: absolute;
-width: 100%;
+    background-color: lightgrey;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 8px;
+
 }
 
 .pie-pagina .grupo-1 {
-width: 100%;
-max-width: 1600px;
-margin: auto;
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-padding-top: 40px;
-padding-bottom: 40px;
+    width: 100%;
+    max-width: 1600px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 .pie-pagina .grupo-1 .columna figure {
-width: 100%;
-height: 100%;
-padding-left: 0%;
-display: flex;
-justify-content: center;
-align-items: center;
-margin:auto;
+    width: 100%;
+    height: 100%;
+    padding-left: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
 }
 
 .pie-pagina .grupo-1 .columna figure img {
-width: 175px;
-margin: 0px;
+    width: 175px;
+    margin: 0px;
 }
 
 .pie-pagina .grupo-1 .columna h2 {
-font-family: 'Open Sans';
-font-size: 22px;
-color:white;
+    font-family: 'Open Sans';
+    font-size: 22px;
+    color:white;
 }
 
 .pie-pagina .grupo-1 .columna img {
-width: 190px;
-margin-left: 10px;
+    width: 190px;
+    margin-left: 10px;
 }
 
 
