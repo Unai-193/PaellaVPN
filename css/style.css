@@ -1,10 +1,10 @@
 body {
-    background-color: rgb(39, 35, 35);
     margin: 0;
     padding-top: 80px;
     position: relative;
     padding-bottom: 14.5em;
     min-height: 200vh;
+    background: linear-gradient(0deg, rgb(39, 35, 35), #b1aca0);
 }
 
 
@@ -18,7 +18,7 @@ header{
     height: auto;
     top: 10px;
     position: fixed;
-    background-color: lightgrey;
+    background-color: #b1aca0;
     box-sizing: border-box;
     border: 2px solid black;
     border-radius: 8px;
@@ -382,3 +382,4 @@ form {
         margin: 0;
     }
 }
+
