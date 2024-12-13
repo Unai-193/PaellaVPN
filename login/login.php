@@ -34,9 +34,8 @@ $db = "users";
 
 $enlace = mysqli_connect($server, $user, $passwddb, $db);
 
-# Hay que arreglar esto
 if (!$enlace) {
-die("No se pudo conectar con la base de datos".mysqli_error());
+    die("No se pudo conectar con la base de datos: " . mysqli_error($enlace));
 }
 
 $nombre = $_POST['nickname'];
@@ -44,18 +43,24 @@ $apellidos = $_POST['secname'];
 $mail = $_POST['mail'];
 $passwd = $_POST['password'];
 
-$sql = "INSERT INTO listado_usuarios (nombre, apellidos, correo, passwd) VALUES ('$nombre', '$apellidos', '$mail', '$passwd')";
 
-mysqli_query($enlace, $sql);
-
-mysqli_close($enlace);
-
+if (strlen($passwd) < 8) {
+    echo "<script>alert('La contraseña debe tener al menos 8 caracteres.');</script>";
+    echo "<script>window.location.href='index.html';</script>";
+    exit;
+} else {
+    $passwd = hash('sha256', $passwd);
+    $sql = "INSERT INTO listado_usuarios (nombre, apellidos, correo, passwd) VALUES ('$nombre', '$apellidos', '$mail', '$passwd')";
+    mysqli_query($enlace, $sql);
+    mysqli_close($enlace);
+}
 ?>
 
 <h2 class="pl"></h2>
 <div class="Login">
-        <h1 class="textomain">Enorabuena has iniciado sesion</h1>
-    </div>
+    <h1 class="textomain">Enhorabuena, te has registrado</h1>
+    <h1 class="textomain"><a href="../login/index.html" class="compra"><strong>Inicie sesión</strong></a></h1>
+</div>
 
 <style>
 
