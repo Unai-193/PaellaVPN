@@ -35,9 +35,9 @@ $db = "users";
 $enlace = mysqli_connect($server, $user, $passwddb, $db);
 
 # Hay que arreglar esto
-if (!$enlace) {
-die("No se pudo conectar con la base de datos".mysqli_error());
-}
+#if (!$enlace) {
+#die("No se pudo conectar con la base de datos".mysqli_error());
+#}
 
 $nombre = $_POST['nickname'];
 $apellidos = $_POST['secname'];
