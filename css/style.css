@@ -5,8 +5,7 @@ body {
 }
 
 .all {
-    background: linear-gradient(0deg, rgb(39, 35, 35), #b1aca0);
-}
+    background: linear-gradient(0deg, rgb(39, 35, 35), #b1aca0);}
 
 header{
     display: flex;
@@ -25,7 +24,9 @@ header{
 }
 
 header .logo img {
-    max-height: 120px;
+    max-height: 80px;
+    padding-right: 40px;
+    margin-right: 0;
 
 }
 
@@ -134,7 +135,6 @@ nav a:hover{
 
 
 .Register {
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -265,7 +265,7 @@ form {
 .pie-pagina .grupo-1 .columna h2 {
     font-family: 'Open Sans';
     font-size: 22px;
-    color:rgb(0, 0, 0);
+    color:rgb(255, 255, 255);
 }
 
 .pie-pagina .grupo-1 .columna img {
@@ -274,7 +274,7 @@ form {
 }
 
 .correo {
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 
