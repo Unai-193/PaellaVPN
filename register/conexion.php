@@ -44,7 +44,7 @@ $mail = $_POST['mail'];
 $passwd = $_POST['password'];
 
 
-if (strlen($_POST['password']) < 8) {
+if (strlen($passwd) < 8) {
     echo "<script>alert('La contraseña debe tener al menos 8 caracteres.');</script>";
     echo "<script>window.location.href='index.html';</script>";
     exit;
