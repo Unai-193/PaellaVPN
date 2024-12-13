@@ -43,6 +43,7 @@ $nombre = $_POST['nickname'];
 $apellidos = $_POST['secname'];
 $mail = $_POST['mail'];
 $passwd = $_POST['password'];
+$passwd = hash('sha256', $passwd);
 
 $sql = "INSERT INTO listado_usuarios (nombre, apellidos, correo, passwd) VALUES ('$nombre', '$apellidos', '$mail', '$passwd')";
 
