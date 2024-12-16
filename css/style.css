@@ -5,7 +5,7 @@ body{
 }
 
 .all {
-    background: linear-gradient(0deg, rgb(39, 35, 35), #b1aca0);
+    background: linear-gradient(0deg, #1B262C, #3282B8);
     min-height: 100vh;
     padding-top: 1%;
 }
@@ -20,7 +20,7 @@ header{
     height: auto;
     top: 10px;
     position: fixed;
-    background-color: #b1aca0;
+    background-color: #0F4C75;
     box-sizing: border-box;
     border: 2px solid black;
     border-radius: 8px;
@@ -235,7 +235,7 @@ form {
 
 
 .pie-pagina {
-    background-color: rgb(39, 35, 35);
+    background-color: #BBE1FA;
     bottom: 0;
     position: flex;
     width: 100%;
