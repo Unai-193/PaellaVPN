@@ -235,12 +235,12 @@ form {
 
 
 .pie-pagina {
-    background-color: #BBE1FA;
+    background-color: #547386;
     bottom: 0;
     position: flex;
     width: 100%;
     box-sizing: border-box;
-    border: 2px solid black;
+    border: 2px solid rgb(255, 255, 255);
 }
 
 .pie-pagina .grupo-1 {
