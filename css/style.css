@@ -1,11 +1,14 @@
-body {
+body{
     margin: 0;
     position: relative;
-    min-height: 165vh;
+    min-height: 0vh;
 }
 
 .all {
-    background: linear-gradient(0deg, rgb(39, 35, 35), #b1aca0);}
+    background: linear-gradient(0deg, rgb(39, 35, 35), #b1aca0);
+    min-height: 100vh;
+    padding-top: 1%;
+}
 
 header{
     display: flex;
@@ -168,8 +171,8 @@ nav a:hover{
 
 
 .bodylogin{
-    padding: 1.5%;
-    margin-top: 5%;
+    padding: 3%;
+    margin-top: 8%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -204,6 +207,7 @@ form {
     padding: 5rem;
     background-color: #c0931675;
     max-height: 50vh;
+    margin-bottom: 10%;
 }
 
 
