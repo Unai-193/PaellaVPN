@@ -28,7 +28,6 @@ header {
 
 header .logo img {
     max-height: 100px;
-    padding-right: 90px;
     margin: 0px;
     height: 100%;
     display: flex;
@@ -38,7 +37,9 @@ header .logo img {
 
 }
 
-
+header nav .pago {
+    margin-left: 100px;
+}
 
 header .desplegable .Doc {
     color: black;
