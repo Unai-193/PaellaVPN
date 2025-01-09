@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <a href="../index.html" class="logo"><img src="../img/paellalogo.png"></a>
+        <a href="../index.html" class="logo"><img src="../img/logopaella12.png"></a>
         <nav>
             <a href="../login/index.html">INICIAR SESIÓN</a>
             <div class="desplegable">
@@ -106,7 +106,7 @@ if (strlen($passwd) < 8) {
         <div class="grupo-1">
             <div class="columna">
                 <figure>
-                    <a href="#"><img src="../img/paellalogo.png"></a>
+                    <a href="#"><img src="../img/logopaella12.png"></a>
                 </figure>
             </div>
             <div class="columna">
