@@ -27,16 +27,14 @@
 
 
 <?php
-$server = "localhost";
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
 $user = "paella";
 $passwddb = "@P4ssw0rd";
-$db = "users";
 
-$enlace = mysqli_connect($server, $user, $passwddb, $db);
+$enlace = new PDO("mysql:host=localhost;dbname=users", $user, $passwddb);
 
-if (!$enlace) {
-    die("No se pudo conectar con la base de datos: " . mysqli_error($enlace));
-}
 
 $nombre = $_POST['nickname'];
 $apellidos = $_POST['secname'];
@@ -44,16 +42,42 @@ $mail = $_POST['mail'];
 $passwd = $_POST['password'];
 
 
-if (strlen($passwd) < 8) {
-    echo "<script>alert('La contraseña debe tener al menos 8 caracteres.');</script>";
-    echo "<script>window.location.href='index.html';</script>";
-    exit;
+if (empty($_POST["email"])) {
+    $error = 'Porfavor, introduzca un correo';
+} else if(empty($_POST["password"])){
+    $error = 'Porfavot introduzca una contraseña';
 } else {
-    $passwd = hash('sha256', $passwd);
-    $sql = "INSERT INTO listado_usuarios (nombre, apellidos, correo, passwd) VALUES ('$nombre', '$apellidos', '$mail', '$passwd')";
-    mysqli_query($enlace, $sql);
-    mysqli_close($enlace);
-}
+    $query = "SELECT * FROM listado_usuarios WHERE correo = ?";
+    $statment = $enlace->prepare($query);
+    $statment->execute([$_POST["email"]]);
+    $data = $statment->fetch(PDO::FETCH_ASSOC);
+
+    if($data){
+        if($data['user_password'] == $_POST['passwd']){
+            $key = 'GKoqW2GLc2YCs3xNikcRTppQek9L_NpQZsNZjBpZxfkrBtM1euveQKSOxBupPQ27Ee0ohTtqXndX5vxYpAvi1x3pRHRONvvwK7OoAM4fhXjTtdxLvZIEhN6JwjZQbBVUldcf8CWqcOwYujXyP-iaU9Hw5BTtuLnsW7NNbRgZzxhAYarcp_MeuM3GEAZscEZVv8OoJZwtNbtJwowmesZ-eqEDH-iOi6Qq3y5Y6qP9eDOg3NeNuoJBqum24Pq2wQRQvMsaxqO7YKDKdS6vaLDONRNykOIoQOCZj1ZDccOMyUE6N-waI4pFYnOP6SjdxAjxzbc1EPmsYVAtJ2TTJuUaC0a6jBwGpO-6YWdQ5bkfsJzBz9SZ0gYYBKWzni6nVvSZekMELXAZcSIpS57WCF-DunFK-z_1PSbcPloK2X4MHFV-pKsOQDiE9kD8Tme9ZpQIKys9jd0iogZrZDm2_tkbq-hPAKseBOegNbhv92c2hhCBM18o3O71eL5Dqy60lQyB';
+            $token = JWT::encode(
+                array(
+                    'iat'       =>  time(),
+                    'nbf'       =>  time(),
+                    'exp'       =>  time() + 3600,
+                    'data'      =>  array(
+                        'user_id'   =>  $data['user_id'],
+                        'user_name' =>  $data['user_name']
+                    )
+                    ),
+                    $key,
+                    'PS256'
+                );
+                setcookie("token", $token, time() + 3600, "/", "", true, true);
+                header('location:welcome.php')
+        } else {
+            $error = "Contraseña incorrecta";
+            }
+        } else {
+            $error = "Email incorrecto";
+        }
+    }
+
 ?>
 
 <h2 class="pl"></h2>

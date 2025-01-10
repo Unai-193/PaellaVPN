@@ -29,7 +29,7 @@
         <form action="login.php" method="POST">
             <i class="fa-solid fa-user"></i>
             <p class="plogin"><label for="nickname">Correo</label>
-            <input type="email" name="nickname" placeholder="Nombre de usuario"></p>
+            <input type="email" name="email" placeholder="Nombre de usuario"></p>
         
             <i class="fa-solid fa-unlock"></i>
             <p class="plogin"><label for="password">Contraseña</label>
