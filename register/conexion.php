@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <a href="../index.html" class="logo"><img src="../img/logopaella12.png"></a>
+        <a href="../index.html" class="logo"><img src="../img/paellalogo.png"></a>
         <nav>
             <a href="../login/index.html">INICIAR SESIÓN</a>
             <div class="desplegable">
@@ -29,8 +29,8 @@
 <?php
 $server = "localhost";
 $user = "paella";
-$passwddb = "@P4ssw0rd";
-$db = "users";
+$passwddb = "P@ssw0rd";
+$db = "paella_clientes";
 
 $enlace = mysqli_connect($server, $user, $passwddb, $db);
 
@@ -50,7 +50,7 @@ if (strlen($passwd) < 8) {
     exit;
 } else {
     $passwd = hash('sha256', $passwd);
-    $sql = "INSERT INTO listado_usuarios (nombre, apellidos, correo, passwd) VALUES ('$nombre', '$apellidos', '$mail', '$passwd')";
+    $sql = "INSERT INTO Usuaris (Nom, Apellidos, Correu_Electronic, Contrasenya) VALUES ('$nombre', '$apellidos', '$mail', '$passwd')";
     mysqli_query($enlace, $sql);
     mysqli_close($enlace);
 }
@@ -59,7 +59,7 @@ if (strlen($passwd) < 8) {
 <h2 class="pl"></h2>
 <div class="Login">
     <h1 class="textomain">Enhorabuena, te has registrado</h1>
-    <h1 class="textomain"><a href="../login/index.html" class="compra"><strong>Inicie sesión</strong></a></h1>
+    <h1 class="textomain"><a href="../login/index.php" class="compra"><strong>Inicie sesión</strong></a></h1>
 </div>
 
 <style>
@@ -106,7 +106,7 @@ if (strlen($passwd) < 8) {
         <div class="grupo-1">
             <div class="columna">
                 <figure>
-                    <a href="#"><img src="../img/logopaella12.png"></a>
+                    <a href="#"><img src="../img/paellalogo.png"></a>
                 </figure>
             </div>
             <div class="columna">
