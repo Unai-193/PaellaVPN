@@ -1,3 +1,63 @@
+<?php
+require 'vendor/autoload.php';
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
+$user = "paella";
+$passwddb = "P@ssw0rd";
+$enlace = new PDO("mysql:host=localhost;dbname=paella_clientes", $user, $passwddb);
+
+$nombre = $_POST['nickname'];
+$apellidos = $_POST['secname'];
+$mail = $_POST['mail'];
+$passwd = $_POST['password'];
+
+if (empty($_POST["email"])) {
+    $error = 'Porfavor, introduzca un correo';
+    } else if(empty($_POST["password"])){
+        $error = 'Porfavor, introduzca una contraseña';
+        } else {
+            $query = "SELECT * FROM Usuaris WHERE Correu_Electronic = ?";
+            $statment = $enlace->prepare($query);
+            $statment->execute([$_POST["email"]]);
+            $data = $statment->fetch(PDO::FETCH_ASSOC);
+            if($data){
+                if($data['user_password'] == $_POST['passwd']){
+                   $key = 'GKoqW2GLc2YCs3xNikcRTppQek9L_NpQZsNZjBpZxfkrBtM1euveQKSOxBupPQ27Ee0ohTtqXndX5vxYpAvi1x3pRHRONvvwK7OoAM4fhXjTtdxLvZIEhN6JwjZQbBVUldcf8CWqcOwYujXyP-iaU9Hw5BTtuLnsW7NNbRgZzxhAYarcp_MeuM3GEAZscEZVv8OoJZwtNbtJwowmesZ-eqEDH-iOi6Qq3y5Y6qP9eDOg3NeNuoJBqum24Pq2wQRQvMsaxqO7YKDKdS6vaLDONRNykOIoQOCZj1ZDccOMyUE6N-waI4pFYnOP6SjdxAjxzbc1EPmsYVAtJ2TTJuUaC0a6jBwGpO-6YWdQ5bkfsJzBz9SZ0gYYBKWzni6nVvSZekMELXAZcSIpS57WCF-DunFK-z_1PSbcPloK2X4MHFV-pKsOQDiE9kD8Tme9ZpQIKys9jd0iogZrZDm2_tkbq-hPAKseBOegNbhv92c2hhCBM18o3O71eL5Dqy60lQyB';
+                    $token = JWT::encode(
+                    array(
+                        'iat'       =>  time(),
+                        'nbf'       =>  time(),
+                        'exp'       =>  time() + 3600,
+                        'data'      =>  array(
+                            'user_id'   =>  $data['user_id'],
+                            'user_name' =>  $data['user_name']
+                        )
+                        ),
+                        $key,
+                        'PS256'
+                    );
+                setcookie("token", $token, time() + 3600, "/", "", true, true);
+                header('location:login.php');       
+            } else {
+                $error = "Contraseña incorrecta";
+            }
+                } else {
+                    $error = "Email incorrecto";
+                }
+            }
+
+$key = 'GKoqW2GLc2YCs3xNikcRTppQek9L_NpQZsNZjBpZxfkrBtM1euveQKSOxBupPQ27Ee0ohTtqXndX5vxYpAvi1x3pRHRONvvwK7OoAM4fhXjTtdxLvZIEhN6JwjZQbBVUldcf8CWqcOwYujXyP-iaU9Hw5BTtuLnsW7NNbRgZzxhAYarcp_MeuM3GEAZscEZVv8OoJZwtNbtJwowmesZ-eqEDH-iOi6Qq3y5Y6qP9eDOg3NeNuoJBqum24Pq2wQRQvMsaxqO7YKDKdS6vaLDONRNykOIoQOCZj1ZDccOMyUE6N-waI4pFYnOP6SjdxAjxzbc1EPmsYVAtJ2TTJuUaC0a6jBwGpO-6YWdQ5bkfsJzBz9SZ0gYYBKWzni6nVvSZekMELXAZcSIpS57WCF-DunFK-z_1PSbcPloK2X4MHFV-pKsOQDiE9kD8Tme9ZpQIKys9jd0iogZrZDm2_tkbq-hPAKseBOegNbhv92c2hhCBM18o3O71eL5Dqy60lQyB';
+
+if(isset($_COOKIE['token'])){
+    $decoded = JWT::decode($token, new Key($key, 'PS256'));
+} else {
+    header('location:index.php');
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -28,7 +88,7 @@
 
 <h2 class="pl"></h2>
 <div class="Login">
-    <h1 class="textomain">Enhorabuena, has iniciado sesion</h1>
+    <h1 class="textomain">Enhorabuena, has iniciado sesion <b><?php echo $decoded->data->user_name; ?></b></h1>
     <h1 class="textomain"><a href="logout.php" class="compra"><strong>Cerrar sesión</strong></a></h1>
 </div>
 
