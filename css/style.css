@@ -93,9 +93,9 @@ nav a:hover{
 /* Body pagina principal*/
 
 .rellenomain {
-    width: 500px;
+    width: 1100px;
     text-align: center;
-    padding-left: 100px;
+    padding-left: 700px;
     line-height: 500%;
     float: left;
     margin-top: 220px;
@@ -103,6 +103,27 @@ nav a:hover{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
 }
+
+.contenedor1 {
+    width: 1200px;
+    text-align: center;
+    padding-left: 400px;
+    line-height: 170%;
+    float: left;
+    margin-top: 0px;
+    padding-bottom: 100px;
+    color: black;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.Manualmain {
+    text-align: center;
+    padding: 20px;
+    color: black;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
 .gif {
     display: flex;
     flex-direction: column;
@@ -143,14 +164,20 @@ nav a:hover{
 }
 
 
-.Register {
+
+.contenedor {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 500px;
-    margin: auto;
-    padding: 5%;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+    padding-right: 1000px;
+    padding-top: 15%;
+}
+
+.Register {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 200px;
 }
 
 .Register .textomain {
