@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS paella_clientes;
+DROP DATABASE IF EXISTS paellavpn;
 
-CREATE DATABASE paella_clientes;
+CREATE DATABASE paellavpn;
 
-USE paella_clientes;
+USE paellavpn;
 
 CREATE TABLE Usuaris (
     ID_Usuari INT AUTO_INCREMENT,

@@ -5,7 +5,7 @@ use Firebase\JWT\Key;
 
 $user = "paella";
 $passwddb = "P@ssw0rd";
-$enlace = new PDO("mysql:host=localhost;dbname=paella_clientes", $user, $passwddb);
+$enlace = new PDO("mysql:host=localhost;dbname=paellavpn", $user, $passwddb);
 
 $nombre = $_POST['nickname'];
 $apellidos = $_POST['secname'];

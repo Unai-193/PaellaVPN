@@ -30,7 +30,7 @@
 $server = "localhost";
 $user = "paella";
 $passwddb = "P@ssw0rd";
-$db = "paella_clientes";
+$db = "paellavpn";
 
 $enlace = mysqli_connect($server, $user, $passwddb, $db);
 
