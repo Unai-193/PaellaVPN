@@ -39,12 +39,18 @@ header .logo img {
 
 header nav .pago {
     margin-left: 100px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: lighter;
+    font-size: x-large;
 }
 
 header .desplegable .Doc {
     color: black;
     margin-left: -5%;
     padding-left: 4%;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: lighter;
+    font-size: x-large;
 }
 
 
@@ -53,12 +59,14 @@ nav {
     flex-wrap: wrap;
     gap: 60px;
     margin-right: 80px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: lighter;
+    font-size: x-large;
 }
 
 nav a {
     color: black;
     text-decoration: none;
-    font-weight: bold;
 }
 
 nav a:hover{
@@ -100,7 +108,7 @@ nav a:hover{
     float: left;
     margin-top: 220px;
     color: black;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 }
 
@@ -113,14 +121,13 @@ nav a:hover{
     margin-top: 0px;
     padding-bottom: 100px;
     color: black;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Georgia;
 }
 
 .Manualmain {
     text-align: center;
     padding: 20px;
     color: black;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
 }
 
@@ -150,14 +157,14 @@ nav a:hover{
 
 
 .gif .h1main {
-    font-family: Lato, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 1,4rem;
     margin-top: 30px;
     text-align: center;
 }
 
 .gif .h2main {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 2rem;
     margin-top: 5px;
     text-align: center;
@@ -182,7 +189,7 @@ nav a:hover{
 
 .Register .textomain {
     white-space: nowrap;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding: 3%;
     margin: 3%;
     text-align: center;
