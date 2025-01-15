@@ -14,12 +14,12 @@
         <header>
             <a href="../index.html" class="logo"><img src="../img/logopaella12.png"></a>
             <nav>
-                <a href="../register/index.html" class="pago"><strong>REGISTRARSE</strong></a>
+                <a href="../register/index.html" class="pago">REGISTRARSE</a>
                 <div class="desplegable">
-                    <a class="Doc" ><strong>DOCUMENTACIÓN↓</strong></a>
+                    <a class="Doc" >DOCUMENTACIÓN↓</a>
                     <div class="submenu">
                         <a href="../manual/index.html">Manual</a>
-                        <a href="../nosotros/index.html" class="link-cabecera"><strong>NOSOTROS</strong></a>
+                        <a href="../nosotros/index.html" class="link-cabecera">NOSOTROS</a>
                     </div>
                 </div>
             </nav>
