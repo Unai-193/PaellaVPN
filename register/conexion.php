@@ -18,7 +18,7 @@
                 <a class="Doc" >DOCUMENTACIÓN↓</a>
                 <div class="submenu">
                     <a href="../manual/index.html">Manual</a>
-                    <a href="../nosotros/index.html" class="link-cabecera">NOSOTROS</a>
+                    <a href="../nosotros/index.html" class="link-cabecera">Nosotros</a>
                 </div>
             </div>
         </nav>
