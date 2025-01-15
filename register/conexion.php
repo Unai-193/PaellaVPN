@@ -76,8 +76,9 @@ if (strlen($passwd) < 8) {
     max-width: 500px;
     margin: auto;
     padding: 5%;
-    border: 3px solid #ffbb00;
+    border: 3px solid #BBE1FA;
     border-radius: 20%;
+    margin-bottom: 100px;
 }
 
 .Login .textomain {
@@ -90,9 +91,9 @@ if (strlen($passwd) < 8) {
 
 .Login .compra {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border: 3px solid #cec048;
+    border: 3px solid #BBE1FA;
     border-radius: 40%;
-    background-color: #c09316;
+    background-color: #BBE1FA;
     padding: 20px;
     color: black;
     text-decoration: none;
