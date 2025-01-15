@@ -13,7 +13,7 @@
     <header>
         <a href="../index.html" class="logo"><img src="../img/paellalogo.png"></a>
         <nav>
-            <a href="../login/index.html">INICIAR SESIÓN</a>
+            <a href="../login/index.php">INICIAR SESIÓN</a>
             <div class="desplegable">
                 <a class="Doc" ><strong>DOCUMENTACIÓN↓</strong></a>
                 <div class="submenu">

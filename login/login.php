@@ -73,7 +73,6 @@ if(isset($_COOKIE['token'])){
     <header>
         <a href="../index.html" class="logo"><img src="../img/logopaella12.png"></a>
         <nav>
-            <a href="../login/index.html">INICIAR SESIÓN</a>
             <div class="desplegable">
                 <a class="Doc" ><strong>DOCUMENTACIÓN↓</strong></a>
                 <div class="submenu">
