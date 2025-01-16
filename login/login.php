@@ -1,66 +1,48 @@
 <?php
-require 'vendor/autoload.php';
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
+session_start();
 
-$user = "paella";
-$passwddb = "P@ssw0rd";
-$enlace = new PDO("mysql:host=localhost;dbname=paellavpn", $user, $passwddb);
 
-$error = '';
-$nombre = $_POST['nickname'] ?? '';
-$apellidos = $_POST['secname'] ?? '';
-$mail = $_POST['mail'] ?? '';
-$passwd = $_POST['password'] ?? '';
+$servername = "localhost"; 
+$username = "paella"; 
+$password = "P@ssw0rd";
+$dbname = "paellavpn";
 
-if (empty($_POST["email"])) {
-    $error = 'Por favor, introduzca un correo';
-} else if (empty($_POST["password"])) {
-    $error = 'Por favor, introduzca una contraseña';
-} else {
-    $query = "SELECT * FROM Usuaris WHERE Correu_Electronic = ?";
-    $statment = $enlace->prepare($query);
-    $statment->execute([$_POST["email"]]);
-    $data = $statment->fetch(PDO::FETCH_ASSOC);
-    
-    if ($data) {
-        if (password_verify($_POST['password'], $data['user_password'])) {
-            $key = 'GKoqW2GLc2YCs3xNikcRTppQek9L_NpQZsNZjBpZxfkrBtM1euveQKSOxBupPQ27Ee0ohTtqXndX5vxYpAvi1x3pRHRONvvwK7OoAM4fhXjTtdxLvZIEhN6JwjZQbBVUldcf8CWqcOwYujXyP-iaU9Hw5BTtuLnsW7NNbRgZzxhAYarcp_MeuM3GEAZscEZVv8OoJZwtNbtJwowmesZ-eqEDH-iOi6Qq3y5Y6qP9eDOg3NeNuoJBqum24Pq2wQRQvMsaxqO7YKDKdS6vaLDONRNykOIoQOCZj1ZDccOMyUE6N-waI4pFYnOP6SjdxAjxzbc1EPmsYVAtJ2TTJuUaC0a6jBwGpO-6YWdQ5bkfsJzBz9SZ0gYYBKWzni6nVvSZekMELXAZcSIpS57WCF-DunFK-z_1PSbcPloK2X4MHFV-pKsOQDiE9kD8Tme9ZpQIKys9jd0iogZrZDm2_tkbq-hPAKseBOegNbhv92c2hhCBM18o3O71eL5Dqy60lQyB';
-            $token = JWT::encode(
-                array(
-                    'iat' => time(),
-                    'nbf' => time(),
-                    'exp' => time() + 3600,
-                    'data' => array(
-                        'user_id' => $data['user_id'],
-                        'user_name' => $data['user_name']
-                    )
-                ),
-                $key,
-                'PS256'
-            );
-            setcookie("token", $token, time() + 3600, "/", "", true, true);
-            header('location:login.php');
-            exit;
-        } else {
-            $error = "Contraseña incorrecta";
-        }
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $correo = $_POST['nickname'];
+    $contrasenya = $_POST['password'];
+
+
+    $contrasenya_encriptada = hash('sha256', $contrasenya);
+
+
+    $sql = "SELECT * FROM Usuaris WHERE Correu_Electronic = ? AND Contrasenya = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $correo, $contrasenya_encriptada);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $usuario = $result->fetch_assoc();
+        $_SESSION['user_id'] = $usuario['ID_Usuari'];
+        $_SESSION['user_name'] = $usuario['Nom'];
+        header("Location: ../home.php");
+        exit();
     } else {
-        $error = "Email incorrecto";
+        echo "<script>alert('Credenciales incorrectas');</script>";
     }
 }
 
-if (!empty($error)) {
-    echo "<div class='error'>$error</div>";
-}
-
-if (isset($_COOKIE['token'])) {
-    $decoded = JWT::decode($_COOKIE['token'], new Key($key, 'PS256'));
-} else {
-    header('location:index.php');
-    exit;
-}
+$conn->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
