@@ -11,19 +11,17 @@
 </head>
 <body>
     <header>
-        <a href="../index.html" class="logo"><img src="../img/paellalogo.png"></a>
+        <a href="../index.html" class="logo"><img src="../img/logopaella12.png"></a>
         <nav>
             <a href="../login/index.php">INICIAR SESIÓN</a>
             <div class="desplegable">
                 <a class="Doc" >DOCUMENTACIÓN↓</a>
                 <div class="submenu">
-                    <a href="../manual/index.html">Manual</a>
                     <a href="../nosotros/index.html" class="link-cabecera">Nosotros</a>
                 </div>
             </div>
         </nav>
     </header>
-
 
 
 <?php
@@ -43,17 +41,27 @@ $apellidos = $_POST['secname'];
 $mail = $_POST['mail'];
 $passwd = $_POST['password'];
 
-
 if (strlen($passwd) < 8) {
     echo "<script>alert('La contraseña debe tener al menos 8 caracteres.');</script>";
     echo "<script>window.location.href='index.html';</script>";
     exit;
-} else {
-    $passwd = hash('sha256', $passwd);
-    $sql = "INSERT INTO Usuaris (Nom, Apellidos, Correu_Electronic, Contrasenya) VALUES ('$nombre', '$apellidos', '$mail', '$passwd')";
-    mysqli_query($enlace, $sql);
-    mysqli_close($enlace);
 }
+
+$passwd = hash('sha256', $passwd);
+
+$sql = "INSERT INTO Usuaris (Nom, Apellidos, Correu_Electronic, Contrasenya) VALUES (?, ?, ?, ?)";
+$stmt = mysqli_prepare($enlace, $sql);
+
+mysqli_stmt_bind_param($stmt, "ssss", $nombre, $apellidos, $mail, $passwd);
+
+if (mysqli_stmt_execute($stmt)) {
+    echo "<script>alert('Usuario registrado con éxito');</script>";
+} else {
+    echo "<script>alert('Error al registrar el usuario');</script>";
+}
+
+mysqli_stmt_close($stmt);
+mysqli_close($enlace);
 ?>
 
 <h2 class="pl"></h2>
@@ -65,7 +73,7 @@ if (strlen($passwd) < 8) {
 <style>
 
     .pl {
-    padding-bottom: 100px;
+    padding-bottom: 200px;
     }
     .Login {
     margin-top: 20px;
@@ -107,7 +115,7 @@ if (strlen($passwd) < 8) {
         <div class="grupo-1">
             <div class="columna">
                 <figure>
-                    <a href="#"><img src="../img/paellalogo.png"></a>
+                    <a href="#"><img src="../img/logopaella12.png"></a>
                 </figure>
             </div>
             <div class="columna">
