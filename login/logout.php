@@ -1,6 +1,7 @@
 <?php
-
-setcookie("token", "", time() - 3600, "/", "", true, true);
-header('location:index.php');
-
+session_start();
+session_unset();
+session_destroy();
+header("Location: index.php");
+exit();
 ?>
