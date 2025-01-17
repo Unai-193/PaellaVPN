@@ -1,4 +1,4 @@
-body{
+body {
     margin: 0;
     position: relative;
     min-height: 0vh;
@@ -12,9 +12,9 @@ body{
 
 header {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
+    justify-content: space-between;
+    align-items: center; 
+    width: 80%;
     height: auto;
     top: 10px;
     position: fixed;
@@ -24,6 +24,8 @@ header {
     border-radius: 8px;
     left: 50%;
     transform: translateX(-50%);
+    padding: 10px 20px; 
+    z-index: 1000; 
 }
 
 header .logo img {
@@ -33,8 +35,7 @@ header .logo img {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin:auto;
-
+    margin: auto;
 }
 
 header nav .pago {
@@ -53,7 +54,6 @@ header .desplegable .Doc {
     font-size: large;
 }
 
-
 nav {
     display: flex;
     flex-wrap: wrap;
@@ -69,10 +69,9 @@ nav a {
     text-decoration: none;
 }
 
-nav a:hover{
+nav a:hover {
     color: #f84f81cc;
 }
-
 
 .desplegable {
     cursor: pointer;
@@ -84,62 +83,70 @@ nav a:hover{
     border: 1px solid #ccc;
     position: absolute;
 }
+
 .submenu a {
     display: block;
     padding: 8px 16px;
     text-decoration: none;
     color: black;
 }
+
 .submenu a:hover {
     background-color: #f1f1f1;
 }
+
 .desplegable:hover .submenu {
     display: block;
 }
 
-
-/* Body pagina principal*/
+/* Modificación principal */
+.main-container {
+    display: flex;
+    justify-content: space-between; /* Espaciado igual entre los elementos */
+    align-items: center;
+    width: 100%;
+    margin-top: 220px;
+    box-sizing: border-box;
+}
 
 .rellenomain {
-    width: 1100px;
+    width: 33%;
     text-align: center;
-    padding-left: 700px;
-    line-height: 500%;
-    float: left;
-    margin-top: 220px;
+    margin: 0 auto; /* Centra el contenedor en su fila */
     color: black;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .contenedor1 {
-    display: flex;
-    width: 600px;
-    padding-left: 0px;
-    padding-right: 200px;
-    line-height: 170%;
-    float: left;
-    margin-left: 920px;
+    width: 33%;
+    padding: 0 20px;
+    margin: 0;
     color: black;
     font-family: Georgia;
-    
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .Manualmain {
     text-align: center;
     color: black;
-
 }
 
 .gif {
+    width: 33%;
+    padding: 0 20px;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    width: 600px;
-    padding-left: 200px;
-    padding-top: 220px;
-    float: center;
-    margin-left: 920px;
+    justify-content: center;
+    align-items: center;
     color: black;
 }
 
@@ -149,51 +156,50 @@ nav a:hover{
     background-image: url("../img/paella.gif");
     background-size: cover;
     background-position: center;
-    padding-top: 100%;
+    padding-top: 56.25%; /* Relación de aspecto 16:9 */
     box-sizing: border-box;
     border: 2px solid #000000da;
     border-radius: 8px;
 }
 
-
-
-.gif .h1main {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 1,4rem;
-    margin-top: 30px;
-    text-align: center;
-}
-
+.gif .h1main,
 .gif .h2main {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 2rem;
-    margin-top: 5px;
+    margin-top: 10px;
     text-align: center;
 }
 
+.h1main {
+    font-size: 1.4rem;
+}
 
+.h2main {
+    font-size: 1.2rem;
+}
 
 .contenedor {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-    height: 100%;
-    padding-right: 1000px;
-    padding-top: 15%;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+    margin: 0;
+    padding: 0;
 }
 
 .Register {
     text-align: center;
     padding: 20px;
-    margin-bottom: 200px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9); 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .Register .textomain {
-    white-space: nowrap;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding: 3%;
     margin: 3%;
-    text-align: center;
     color: black;
 }
 
@@ -207,18 +213,16 @@ nav a:hover{
     text-decoration: none;
 }
 
-
-/* Body pagina login y register*/
-
-
-.bodylogin{
+/* Body página login y register */
+.bodylogin {
     padding: 3%;
     margin-top: 8%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.plogin{
+
+.plogin {
     margin: 1%;
     padding-bottom: 10px;
     display: flex;
@@ -226,13 +230,11 @@ nav a:hover{
     align-items: center;
 }
 
-
-
 .submit {
     margin: 1%;
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
@@ -251,29 +253,21 @@ form {
     margin-bottom: 10%;
 }
 
-
-
-/* Body pagina nosotros*/
-
-
-.bodyus{
+/* Body página nosotros */
+.bodyus {
     padding: 1.5%;
-    margin-top: 5%;
+    margin-top: 10%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.textus{
+.textus {
     margin: 1%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
-
-
-
 
 .pie-pagina {
     background-color: white;
@@ -299,7 +293,7 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin:auto;
+    margin: auto;
 }
 
 .pie-pagina .grupo-1 .columna figure img {
@@ -310,7 +304,7 @@ form {
 .pie-pagina .grupo-1 .columna h2 {
     font-family: 'Open Sans';
     font-size: 22px;
-    color:black;
+    color: black;
 }
 
 .pie-pagina .grupo-1 .columna img {
@@ -321,8 +315,3 @@ form {
 .correo {
     color: black;
 }
-
-
-
-
-
