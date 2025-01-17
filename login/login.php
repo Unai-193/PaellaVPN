@@ -1,15 +1,12 @@
 <?php
 session_start();
 
-
-$servername = "localhost"; 
-$username = "paella"; 
-$password = "P@ssw0rd";
+$servername = "localhost";
+$username = "paella";
+$password = "@P4ssw0rd";
 $dbname = "paellavpn";
 
-
 $conn = new mysqli($servername, $username, $password, $dbname);
-
 
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
@@ -19,13 +16,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = $_POST['nickname'];
     $contrasenya = $_POST['password'];
 
-
     $contrasenya_encriptada = hash('sha256', $contrasenya);
 
-
-    $sql = "SELECT * FROM Usuaris WHERE Correu_Electronic = ? AND Contrasenya = ?";
-    $stmt = $conn->prepare($sql);
+    $stmt = $conn->prepare("SELECT * FROM Usuaris WHERE Correu_Electronic = ? AND Contrasenya = ?");
     $stmt->bind_param("ss", $correo, $contrasenya_encriptada);
+
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -33,15 +28,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $usuario = $result->fetch_assoc();
         $_SESSION['user_id'] = $usuario['ID_Usuari'];
         $_SESSION['user_name'] = $usuario['Nom'];
-        header("Location: ../home.php");
+
+        header("Location: login.php");
         exit();
     } else {
-        echo "<script>alert('Credenciales incorrectas');</script>";
+        echo "<script>alert('Credenciales incorrectas'); window.location.href = 'index.php';</script>";
+        exit();
     }
+
+    $stmt->close();
 }
 
 $conn->close();
 ?>
+
+
+
 
 
 <!DOCTYPE html>
@@ -62,7 +64,6 @@ $conn->close();
             <div class="desplegable">
                 <a class="Doc" >DOCUMENTACIÓN↓</a>
                 <div class="submenu">
-                    <a href="../manual/index.html">Manual</a>
                     <a href="../nosotros/index.html" class="link-cabecera">Nosotros</a>
                 </div>
             </div>
@@ -71,18 +72,21 @@ $conn->close();
 
 
 
-<h2 class="pl"></h2>
+
+
+    <h2 class="pl"></h2>
 <div class="Login">
     <h1 class="textomain">Enhorabuena, has iniciado sesion <b><?php echo $decoded->data->user_name; ?></b></h1>
-    <h1 class="textomain"><a href="logout.php" class="compra"><strong>Cerrar sesión</strong></a></h1>
+    <h1 class="textomain2"><a href="imagen.png" download><strong>Archivo VPN</strong></a></h1>
+    <h1 class="textomain3"><a href="logout.php"><strong>Cerrar sesión</strong></a></h1>
 </div>
 
 <style>
+.pl {
+    padding-bottom: 200px;
+}
 
-    .pl {
-    padding-bottom: 100px;
-    }
-    .Login {
+.Login {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -91,8 +95,7 @@ $conn->close();
     max-width: 500px;
     margin: auto;
     padding: 5%;
-    border: 3px solid #ffbb00;
-    border-radius: 20%;
+    margin-bottom: 100px;
 }
 
 .Login .textomain {
@@ -103,16 +106,37 @@ $conn->close();
     text-align: center;
 }
 
-.Login .compra {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border: 3px solid #cec048;
+.Login .textomain2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 3px solid #BBE1FA;
     border-radius: 40%;
-    background-color: #c09316;
+    background-color: #BBE1FA;
     padding: 20px;
     color: black;
     text-decoration: none;
 }
-    </style>
+
+.Login .textomain3 {
+    margin-top: 200px;
+    border: 2px solid red; 
+    border-radius: 0; 
+    background-color: #FFCCCC; 
+    padding: 10px; 
+    color: black;
+    text-decoration: none;
+}
+
+.Login .textomain2 a, .Login .textomain3 a {
+    color: black; 
+    text-decoration: none; 
+}
+
+.Login .textomain2 a:hover, .Login .textomain3 a:hover {
+    text-decoration: underline; 
+}
+</style>
+
+
    
 
 
